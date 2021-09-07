@@ -40,6 +40,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_DOTNET_ENABLE_CONCURRENT_EXECUTION: true
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"tom-sonartest_TestAngular" /o:"tom-sonartest" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
